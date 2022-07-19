@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TodoList.io</title>
+<link rel="stylesheet" href="/styles.css">
+<link href="http://fonts.cdnfonts.com/css/helvetica-neue-9" rel="stylesheet">
+                
+</head>
+<body>
+    <div class="box" id="heading">
+        <h1> <%=DAY%> </h1> 
+    </div>
+    <div class="box">
+        <% for(var i=1 ; i<=LIST.length ; i++){ %>
+            <form method="post" action="/delete">
+                <div class="item">
+                    <input type="checkbox" name="remove" value="<%=LIST[i-1].id%>" onChange="this.form.submit()"> 
+                    <p> <%= LIST[i-1].name %> </p> 
+                </div>
+            </form>    
+        <% } %>
+            <form method="post" action="/">
+                <input type="text" name="task" placeholder="New Task" autofocus autocomplete="off">
+                <button type="submit">+</button>
+            </form>
+    </div>
+
+</body>
+</html>
